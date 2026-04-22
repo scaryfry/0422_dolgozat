@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:mauidolgozat"
+             x:Class="mauidolgozat.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Button Text="Hozzáadás" Clicked="AddButton_Clicked"></Button>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="2"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="Id"></Label>
+                <Label Grid.Column="1" Text="GameName"></Label>
+                <Label Grid.Column="2" Text="OrderDate"></Label>
+                <Label Grid.Column="3" Text="ExpirationDate"></Label>
+                <Label Grid.Column="4" Text="Price"></Label>
+                <Label Grid.Column="5" Text="Actions"></Label>
+            </Grid>
+            <CollectionView x:Name="MembershipViews">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="local:PremiumMembership">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="PremiumMemberId" Text="{Binding Id}" Grid.Column="0"></Label>
+                            <Label x:Name="OrderDate" Text="{Binding GameName}" Grid.Column="1"></Label>
+                            <Label x:Name="ExpirationDate" Text="{Binding ExpirationDate}" Grid.Column="2"></Label>
+                            <Label x:Name="Price" Text="{Binding Price}" Grid.Column="3"></Label>
+                            <Button x:Name="DeleteButton" Text="Törlés" Grid.Column="4" Clicked="DeleteButton_Clicked"></Button>
+                            <Button x:Name="EditButton" Text="Módosítás" Grid.Column="5" Clicked="EditButton_Clicked"></Button>
+                        </Grid>
+                    </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
